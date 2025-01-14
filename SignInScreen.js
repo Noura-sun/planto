@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
-import { auth } from './firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import React, { useState } from "react";
+import { View, Text, TextInput, Button, StyleSheet } from "react-native";
+import { auth } from "./firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export default function SignInScreen({ navigation }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSignIn = async (email, password) => {
+  const handleSignIn = async () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log("User signed in:", userCredential.user);
+      navigation.replace("MainPage"); // Redirect to MainPage after login
     } catch (error) {
       console.error("Error signing in:", error.message);
     }
   };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Sign In</Text>
@@ -32,7 +34,7 @@ export default function SignInScreen({ navigation }) {
         onChangeText={setPassword}
       />
       <Button title="Sign In" onPress={handleSignIn} />
-      <Text onPress={() => navigation.navigate('SignUp')} style={styles.link}>
+      <Text onPress={() => navigation.navigate("SignUp")} style={styles.link}>
         Don't have an account? Sign Up
       </Text>
     </View>
@@ -42,8 +44,8 @@ export default function SignInScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     padding: 20,
   },
   title: {
@@ -51,7 +53,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   input: {
-    width: '100%',
+    width: "100%",
     height: 40,
     borderWidth: 1,
     marginBottom: 10,
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   link: {
-    color: '#4CAF50',
+    color: "#4CAF50",
     marginTop: 10,
   },
 });
