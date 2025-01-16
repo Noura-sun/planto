@@ -1,10 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  FlatList,
+  Image,
+} from "react-native";
 import { db } from "./firebase"; // Firestore instance
 import { collection, onSnapshot, doc, updateDoc } from "firebase/firestore";
 
 export default function MainPage({ navigation }) {
   const [reminders, setReminders] = useState([]);
+  const [imageIndex, setImageIndex] = useState(0);
+
+  const plantImages = [
+    require("./assets/plant.png"), // First image (open eyes)
+    require("./assets/plant_done.png"), // Second image (closed eyes)
+  ];
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, "plants"), (snapshot) => {
@@ -18,6 +31,13 @@ export default function MainPage({ navigation }) {
     return () => unsubscribe();
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setImageIndex((prevIndex) => (prevIndex + 1) % plantImages.length); // Cycle through images
+    }, 500); // Change every 500ms
+    return () => clearInterval(interval); // Cleanup interval
+  }, []);
+
   const toggleCompletion = async (id, currentStatus) => {
     try {
       const plantRef = doc(db, "plants", id);
@@ -29,16 +49,10 @@ export default function MainPage({ navigation }) {
 
   const renderItem = ({ item }) => (
     <View
-      style={[
-        styles.reminderItem,
-        item.completed && styles.reminderItemCompleted,
-      ]}
+      style={[styles.reminderItem, item.completed && styles.reminderItemCompleted]}
     >
       <TouchableOpacity
-        style={[
-          styles.circleButton,
-          item.completed && styles.circleButtonCompleted,
-        ]}
+        style={[styles.circleButton, item.completed && styles.circleButtonCompleted]}
         onPress={() => toggleCompletion(item.id, item.completed)}
       >
         {item.completed && <Text style={styles.checkmark}>✔</Text>}
@@ -48,38 +62,26 @@ export default function MainPage({ navigation }) {
         onPress={() => navigation.navigate("Edit", { plant: item })}
       >
         <Text
-          style={[
-            styles.reminderName,
-            item.completed && styles.reminderTextCompleted,
-          ]}
+          style={[styles.reminderName, item.completed && styles.reminderTextCompleted]}
         >
           {item.name}
         </Text>
         <Text
-          style={[
-            styles.reminderDetails,
-            item.completed && styles.reminderTextCompleted,
-          ]}
+          style={[styles.reminderDetails, item.completed && styles.reminderTextCompleted]}
         >
           📍 {item.room}
         </Text>
         <View style={styles.tagsContainer}>
           <View style={styles.tag}>
             <Text
-              style={[
-                styles.tagText,
-                item.completed && styles.reminderTextCompleted,
-              ]}
+              style={[styles.tagText, item.completed && styles.reminderTextCompleted]}
             >
               ☀️ {item.light}
             </Text>
           </View>
           <View style={styles.tag}>
             <Text
-              style={[
-                styles.tagText,
-                item.completed && styles.reminderTextCompleted,
-              ]}
+              style={[styles.tagText, item.completed && styles.reminderTextCompleted]}
             >
               💧 {item.water}
             </Text>
@@ -88,6 +90,28 @@ export default function MainPage({ navigation }) {
       </TouchableOpacity>
     </View>
   );
+
+  if (reminders.length === 0) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>My Plants 🌱</Text>
+        <View style={styles.allDoneContent}>
+          <Image
+            source={plantImages[imageIndex]}
+            style={styles.allDoneImage}
+          />
+          <Text style={styles.allDoneTitle}>All Done! 🎉</Text>
+          <Text style={styles.allDoneDescription}>All Reminders Completed</Text>
+        </View>
+        <TouchableOpacity
+          style={styles.addButton}
+          onPress={() => navigation.navigate("AddReminder")}
+        >
+          <Text style={styles.addButtonText}>+ New Reminder</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -115,6 +139,29 @@ const styles = StyleSheet.create({
     backgroundColor: "#E3F3EC",
     padding: 20,
   },
+  allDoneContent: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  allDoneImage: {
+    width: 200,
+    height: 200,
+    marginBottom: 20,
+    resizeMode: "contain",
+  },
+  allDoneTitle: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#4CAF50",
+    marginBottom: 10,
+  },
+  allDoneDescription: {
+    fontSize: 16,
+    color: "#555",
+    textAlign: "center",
+    marginBottom: 30,
+  },
   title: {
     fontSize: 28,
     fontWeight: "bold",
@@ -128,7 +175,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   listContainer: {
-    paddingBottom: 100, // Extra padding to allow space for scrolling
+    paddingBottom: 100,
   },
   reminderItem: {
     backgroundColor: "#fff",
@@ -143,10 +190,10 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
   },
   reminderItemCompleted: {
-    opacity: 0.5, // Fading effect for completed reminders
+    opacity: 0.5,
   },
   circleButton: {
-    width: 22, // Smaller circle
+    width: 22,
     height: 22,
     borderRadius: 12,
     borderWidth: 2,
@@ -178,7 +225,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   reminderTextCompleted: {
-    color: "#999", // Dimmed text color for completed reminders
+    color: "#999",
   },
   tagsContainer: {
     flexDirection: "row",
@@ -197,10 +244,12 @@ const styles = StyleSheet.create({
   },
   addButton: {
     backgroundColor: "#4CAF50",
-    borderRadius: 10,
+    borderRadius: 25,
     padding: 15,
     alignItems: "center",
-    marginTop: 20,
+    position: "absolute",
+    bottom: 20,
+    left: 20,
   },
   addButtonText: {
     fontSize: 16,
