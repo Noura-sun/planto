@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { auth } from "./firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
@@ -20,9 +20,12 @@ export default function SignUpScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
+      {/* Add Image */}
+      <Image source={require("./assets/Group3.png")} style={styles.logo} />
+
       <Text style={styles.title}>Create Account</Text>
       
-      {/* Full Name Label and Input */}
+      {/* Full Name Input */}
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Full Name</Text>
         <TextInput
@@ -34,7 +37,7 @@ export default function SignUpScreen({ navigation }) {
         />
       </View>
 
-      {/* Email Label and Input */}
+      {/* Email Input */}
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Email</Text>
         <TextInput
@@ -47,7 +50,7 @@ export default function SignUpScreen({ navigation }) {
         />
       </View>
 
-      {/* Password Label and Input */}
+      {/* Password Input */}
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Password</Text>
         <TextInput
@@ -66,10 +69,7 @@ export default function SignUpScreen({ navigation }) {
       
       <Text style={styles.footerText}>
         Already have an account?{" "}
-        <Text
-          onPress={() => navigation.navigate("SignIn")}
-          style={styles.link}
-        >
+        <Text onPress={() => navigation.navigate("SignIn")} style={styles.link}>
           Sign In
         </Text>
       </Text>
@@ -84,6 +84,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
+  },
+  logo: {
+    width: 150, // Adjust the width as needed
+    height: 150, // Adjust the height as needed
+    marginBottom: 20, // Add space below the image
   },
   title: {
     fontSize: 28,

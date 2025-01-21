@@ -29,7 +29,7 @@ export default function WelcomeScreen({ navigation }) {
         <Image source={plantImages[imageIndex]} style={styles.image} />
         <Text style={styles.subtitle}>Start your plant journey!</Text>
         <Text style={styles.description}>
-          Now all your plants will be in one place and we will help you take care of them :)
+         ( Now all your plants will be in one place and we will help you take care of them :)
         </Text>
         <TouchableOpacity
           style={styles.button}
