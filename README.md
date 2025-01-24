@@ -1,3 +1,4 @@
+# **Plants-App-**
 
 
 # **Planto**  
@@ -73,7 +74,7 @@ The app consists of the following screens:
      - **Location**: Input for the plant's location.  
      - **Amount of Water**: Input for the required water amount.  
      - **Sunlight**: Input for the amount of sunlight required.  
-   - **Features**:  
+   - **Features**:
      - Users can save reminders for their plants.  
 
 ---
