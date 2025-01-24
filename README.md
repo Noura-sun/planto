@@ -3,6 +3,7 @@
 
 # **Planto**  
 A smart plant care reminder app to help you keep your plants healthy and happy  
+![Planto App Screenshot](assets/plantojpeg.jpeg "Planto App Screenshot")
 
 ---
 
