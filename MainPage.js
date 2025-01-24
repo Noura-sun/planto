@@ -9,6 +9,8 @@ import {
 } from "react-native";
 import { db } from "./firebase"; // Firestore instance
 import { collection, onSnapshot, doc, updateDoc } from "firebase/firestore";
+import LottieView from "lottie-react-native"; 
+
 
 export default function MainPage({ navigation }) {
   const [reminders, setReminders] = useState([]);
@@ -103,12 +105,16 @@ export default function MainPage({ navigation }) {
           <Text style={styles.allDoneTitle}>All Done! 🎉</Text>
           <Text style={styles.allDoneDescription}>All Reminders Completed</Text>
         </View>
+        
         <TouchableOpacity
           style={styles.addButton}
           onPress={() => navigation.navigate("AddReminder")}
         >
           <Text style={styles.addButtonText}>+ New Reminder</Text>
         </TouchableOpacity>
+        <View style={styles.firwork}>
+        <LottieView  style={{flex: 1}} source={require("./assets/firecracker.json")} autoPlay loop />
+        </View>
       </View>
     );
   }
@@ -257,4 +263,9 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
   },
+  firwork:{
+    width: "100%",
+    height: "99%",
+    position:"absolute"
+  }
 });
