@@ -1,6 +1,4 @@
-Here’s how your README file could look with the **Screen Structure** section included, formatted appropriately for GitHub:
 
----
 
 # **Planto**  
 A smart plant care reminder app to help you keep your plants healthy and happy  
@@ -83,9 +81,3 @@ The app consists of the following screens:
 ### 5. **Check Reminder Screen**  
    - Displays a list of saved reminders.  
    - Users can mark reminders as completed once finished.  
-
----
-
-This updated README file provides a complete overview of the app, its features, and the screen structure, making it easy for developers and users to understand the project.  
-
-Let me know if you'd like to refine or expand this further! 😊  
