@@ -82,4 +82,49 @@ The app consists of the following screens:
 
 ### 5. **Check Reminder Screen**  
    - Displays a list of saved reminders.  
-   - Users can mark reminders as completed once finished.  
+   - Users can mark reminders as completed once finished.
+
+  ## Setup Instructions
+
+### Clone the Repository
+To get started, clone the repository by running the following command in your terminal:
+```sh
+git clone https://github.com/Noura-sun/Plants-App-.git
+cd Plants-App-
+```
+
+### Install Dependencies
+Ensure that you have [Node.js](https://nodejs.org/) installed along with either [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/). Then, install the required dependencies:
+```sh
+npm install  # or yarn install
+```
+
+### Running the Application
+
+#### Android
+To run the app on an Android emulator or physical device, use:
+```sh
+npx react-native run-android
+```
+
+#### iOS
+To run the app on iOS, follow these steps:
+1. Navigate to the `ios` directory and install dependencies using CocoaPods:
+   ```sh
+   cd ios
+   pod install
+   cd ..
+   ```
+2. Run the application:
+   ```sh
+   npx react-native run-ios
+   ```
+
+### Important Notes
+- Ensure that Metro Bundler is running before launching the app:
+  ```sh
+  npx react-native start
+  ```
+- If you encounter issues, make sure that React Native CLI and the required development environment are properly set up by following the official [React Native environment setup guide](https://reactnative.dev/docs/environment-setup).
+
+
