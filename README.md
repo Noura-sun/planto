@@ -127,9 +127,10 @@ To run the app on iOS, follow these steps:
   ```
 - If you encounter issues, make sure that React Native CLI and the required development environment are properly set up by following the official [React Native environment setup guide](https://reactnative.dev/docs/environment-setup).
 
-- 
-# ** Future Work for the Indoor Plant Care Application:**
- ### We plan to introduce several advanced features to improve the Indoor Plant Care Application:
+
+
+## ** Future Work for the Indoor Plant Care Application:**
+**We plan to introduce several advanced features to improve the Indoor Plant Care Application:**
 
  **Automatic Plant Recognition**
 Utilize AI-powered image recognition to identify plants through the camera and automatically retrieve relevant care information.
