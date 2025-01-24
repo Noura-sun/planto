@@ -129,7 +129,7 @@ To run the app on iOS, follow these steps:
 
 
 
-## ** Future Work for the Indoor Plant Care Application **:
+# ** Future Work for the Indoor Plant Care Application **:
  We plan to introduce several advanced features to improve the Indoor Plant Care Application :
 
  **Automatic Plant Recognition**:
