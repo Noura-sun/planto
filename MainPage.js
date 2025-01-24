@@ -96,7 +96,6 @@ export default function MainPage({ navigation }) {
   if (reminders.length === 0) {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>My Plants 🌱</Text>
         <View style={styles.allDoneContent}>
           <Image
             source={plantImages[imageIndex]}
@@ -265,7 +264,7 @@ const styles = StyleSheet.create({
   },
   firwork:{
     width: "100%",
-    height: "99%",
+    height: "95%",
     position:"absolute"
   }
 });
