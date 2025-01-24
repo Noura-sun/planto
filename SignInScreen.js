@@ -26,7 +26,7 @@ export default function SignInScreen({ navigation }) {
   return (
     <View style={styles.container}>
       {/* Add Image */}
-      <Image source={require("./assets/Group4.png")} style={styles.logo} />
+      <Image source={require("./assets/3.png")} style={styles.logo} />
 
       <Text style={styles.title}>Welcome Back!</Text>
 
@@ -89,9 +89,10 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   logo: {
-    width: 150, // Adjust the width as needed
-    height: 150, // Adjust the height as needed
-    marginBottom: 20, // Add space below the image
+    width: 620, // Adjust the width as needed
+    height: 280, // Adjust the height as needed
+    marginBottom: -20, // Add space below the image
+    marginTop:-80,
   },
   title: {
     fontSize: 28,
@@ -121,9 +122,11 @@ const styles = StyleSheet.create({
   forgotPasswordButton: {
     alignSelf: "flex-start", // Align the button to the left
     marginVertical: 10,
+    marginTop:-3,
+    marginLeft:7
   },
   forgotPasswordText: {
-    fontSize: 14,
+    fontSize: 13,
     color: "#000",
     fontWeight: "bold",
   },

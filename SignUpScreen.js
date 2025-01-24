@@ -21,7 +21,7 @@ export default function SignUpScreen({ navigation }) {
   return (
     <View style={styles.container}>
       {/* Add Image */}
-      <Image source={require("./assets/Group3.png")} style={styles.logo} />
+      <Image source={require("./assets/2.png")} style={styles.logo} />
 
       <Text style={styles.title}>Create Account</Text>
       
@@ -86,9 +86,9 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   logo: {
-    width: 150, // Adjust the width as needed
-    height: 150, // Adjust the height as needed
-    marginBottom: 20, // Add space below the image
+    width: 600, // Adjust the width as needed
+    height: 300, // Adjust the height as needed
+    marginBottom: -30, // Add space below the image
   },
   title: {
     fontSize: 28,
