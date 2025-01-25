@@ -7,6 +7,9 @@ A smart plant care reminder app to help you keep your plants healthy and happy
 
 
 
+[**View Demo**](https://drive.google.com/file/d/1FbT7rO5Q85ZbiFN9geqKVBDSfmFmypDn/view)
+
+
 ---
 
 ## **Index**
