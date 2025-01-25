@@ -5,8 +5,27 @@
 A smart plant care reminder app to help you keep your plants healthy and happy  
 ![Planto App Screenshot](assets/plantojpeg.jpeg "Planto App Screenshot")
 
+
+
 ---
 
+## **Index**
+1. [Description](#description)  
+2. [Features](#features)  
+3. [Usage](#usage)  
+4. [Screen Structure](#screen-structure)  
+   - [Welcome Screen](#1-welcome-screen)  
+   - [Login Screen](#2-login-screen)  
+   - [Sign Up Screen](#3-sign-up-screen)  
+   - [Set Reminder Screen](#4-set-reminder-screen)  
+   - [Check Reminder Screen](#5-check-reminder-screen)  
+5. [Setup Instructions](#setup-instructions)  
+   - [Clone the Repository](#clone-the-repository)  
+   - [Install Dependencies](#install-dependencies)  
+   - [Running the Application](#running-the-application)  
+6. [Future Work](#future-work-for-the-indoor-plant-care-application)  
+
+--- 
 ## **Description**  
 **Planto** is a simple and user-friendly app designed to assist plant enthusiasts in taking care of their plants. With Planto, you can:  
 - Add the names of your plants and assign their locations (e.g., bedroom, kitchen, balcony).  
